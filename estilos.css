@@ -1,0 +1,205 @@
+:root {
+	/* Paleta de colores */
+	--brand-primary: #000000; /* azul bootstrap por defecto */
+	--brand-dark: #e69010; /* azul oscuro para header */
+	--bg-page: #ffffff; /* fondo claro del cuerpo */
+	--text-default: #000000; /* texto principal */
+	--muted: #000000; /* texto secundario */
+	--btn-primary-bg: #f70000;
+	--btn-primary-color: #000000;
+	--footer-bg: #0b1220; /* fondo oscuro para footer */
+	--footer-text: #e9ecef;
+}
+
+/* Reset mínimo y layout para footer sticky */
+html, body {
+	height: 100%;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	color: var(--text-default);
+	background-color: var(--bg-page);
+}
+
+/* Contenedor principal: empuja el footer hacia abajo */
+main, .container-main {
+	flex: 1 0 auto;
+}
+
+/* Navbar / Header */
+.navbar {
+	background-color: var(--brand-dark) !important;
+}
+
+:root {
+	/* Paleta de colores - tema oscuro */
+	--brand-primary: #024100; /* azul para llamadas a la acción */
+	--brand-dark: #995200; /* header en negro */
+	--bg-page: #000000; /* fondo negro para toda la página */
+	--text-default: #ffffff; /* texto principal blanco */
+	--muted: #eeeeee; /* texto secundario gris claro */
+	--btn-primary-bg: #ff7b00;
+	--btn-primary-color: #000000;
+	--footer-bg: #000000; /* footer negro */
+	--footer-text: #ffffff;
+}
+
+/* Reset mínimo y layout para footer sticky */
+html, body {
+	height: 100%;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	color: var(--text-default);
+	background-color: var(--bg-page);
+}
+
+/* Navbar / Header */
+.navbar {
+	background-color: var(--brand-dark) !important;
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+	color: #ffffff !important;
+}
+.navbar .nav-link:hover {
+	color: #dbe9ff !important;
+}
+
+/* Secciones */
+section.py-5 {
+	padding-top: 3rem !important;
+	padding-bottom: 3rem !important;
+}
+
+h1, h2, h3, h4, h5 {
+	color: var(--text-default);
+}
+
+/* Forzar que la mayor parte del texto sea blanco */
+p, ul, li {
+	color: var(--text-default);
+}
+
+/* Mantener color tenue para .text-muted */
+.text-muted {
+	color: var(--muted) !important;
+}
+
+/* Botones */
+.btn-primary {
+	background-color: var(--btn-primary-bg) !important;
+	border-color: var(--btn-primary-bg) !important;
+	color: var(--btn-primary-color) !important;
+}
+.btn-primary:hover, .btn-primary:focus {
+	background-color: #0b5ed7 !important;
+	border-color: #0b5ed7 !important;
+	color: var(--btn-primary-color) !important;
+}
+.btn-outline-light {
+	color: #fff !important;
+	border-color: rgba(255,255,255,0.65) !important;
+}
+
+/* Cards: fondo oscuro para contraste */
+.card {
+	border-radius: 0.5rem;
+	background-color: #a53205;
+	color: var(--text-default);
+}
+
+/* Footer sticky al pie */
+footer {
+	background-color: var(--footer-bg) !important;
+	color: var(--footer-text) !important;
+	flex-shrink: 0;
+}
+.text-white a {
+	color: var(--footer-text) !important;
+}
+.text-white a:hover {
+	text-decoration: underline;
+	color: #ffffff !important;
+}
+
+/* Ajustes responsivos y pequeños detalles */
+.rounded-circle {
+	object-fit: cover;
+}
+
+/* Utility: centro vertical en hero */
+.hero-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Para asegurar que los contenedores principales usen el espacio disponible */
+.container {
+	max-width: 1100px;
+}
+
+/* Asegurar fuerza visual en títulos de secciones */
+.fw-bold {
+	color: var(--text-default) !important;
+}
+
+/* Pequeño tweak para imágenes en cards */
+.card-img-top {
+	max-height: 220px;
+	object-fit: cover;
+}
+
+/* Forzar fondos claros de Bootstrap a oscuro para coherencia */
+.bg-light {
+	background-color: var(--bg-page) !important;
+}
+
+/* Mejor legibilidad para enlaces y textos primarios */
+a {
+	color: var(--btn-primary-bg);
+}
+
+/* Estilos específicos para la página de contacto */
+.contact-section {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+.contact-form .form-control {
+	background-color: #ffffff;
+	border: 1px solid #2b2b2b;
+	color: var(--text-default);
+}
+.contact-form .form-control::placeholder {
+	color: #9a9a9a;
+}
+.contact-form .form-label {
+	color: var(--text-default);
+}
+.contact-form .btn-primary {
+	padding: 0.75rem 1.25rem;
+	font-size: 1.05rem;
+}
+
+/* Panel de información con fondo negro pedido */
+.contact-info {
+	background-color: #2b2b2b;
+	/* Sombra naranja para resaltar el panel de información */
+	box-shadow: 0 8px 24px rgba(255, 129, 2, 0.589), 0 2px 6px rgba(229, 115, 0, 0.12);
+	border: 2px solid rgb(229, 114, 0);
+	color: var(--text-default);
+	min-height: 100%;
+}
+
+
+
