@@ -40,18 +40,23 @@
     <div class="row gx-5 gy-4 align-items-start">
       <!-- Formulario: columna más amplia -->
       <div class="col-12 col-md-7">
-        <form class="contact-form">
+  <!-- action set to '#' and submission intercepted por JS para evitar POST real (evita HTTP 405 en hosting estático) -->
+  <form class="contact-form" method="post" action="#" novalidate>
           <div class="mb-3">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-control form-control-lg">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <div class="valid-feedback">Nombre registrado!</div>
+            <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control form-control-lg">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+            <div class="invalid-feedback">Por favor ingresa un correo electrónico válido.</div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Mensaje</label>
-            <textarea rows="7" class="form-control form-control-lg"></textarea>
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea rows="7" class="form-control form-control-lg" id="mensaje" name="mensaje" required></textarea>
+            <div class="invalid-feedback">Por favor escribe tu mensaje.</div>
           </div>
           <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
         </form>
@@ -71,6 +76,85 @@
     </div>
   </section>
 
+
+  <script>
+    (function(){
+      var form = document.querySelector('.contact-form');
+      if (!form) return;
+
+      // Aplicar errores inyectados por servidor (si los hay)
+      if (window.serverErrors && typeof window.serverErrors === 'object') {
+        Object.keys(window.serverErrors).forEach(function(field){
+          var input = document.querySelector('[name="' + field + '"]');
+          if (!input) return;
+          input.classList.remove('is-valid');
+          input.classList.add('is-invalid');
+          var fb = input.parentElement.querySelector('.invalid-feedback');
+          if (fb) fb.textContent = window.serverErrors[field];
+        });
+        var first = document.querySelector('.is-invalid');
+        if (first && typeof first.focus === 'function') first.focus();
+      }
+
+      // Interceptar el envío para evitar POST real (evita HTTP 405 en hosting estático)
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // limpiar estados previos
+        var fields = ['nombre','email','mensaje'];
+        fields.forEach(function(f){
+          var el = form.querySelector('[name="' + f + '"]');
+          if (el) el.classList.remove('is-invalid','is-valid');
+        });
+
+        // Validación 'server-side' simulada en el cliente
+        var errors = {};
+        var nombre = (form.querySelector('[name="nombre"]') || {}).value || '';
+        var email = (form.querySelector('[name="email"]') || {}).value || '';
+        var mensaje = (form.querySelector('[name="mensaje"]') || {}).value || '';
+
+        if (!nombre || nombre.trim().length < 2) {
+          errors.nombre = 'El nombre es obligatorio y debe tener al menos 4 caracteres.';
+        }
+        if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+          errors.email = 'Por favor ingresa un correo electrónico válido.';
+        }
+        if (!mensaje || mensaje.trim().length < 5) {
+          errors.mensaje = 'El mensaje debe tener al menos 4 caracteres.';
+        }
+
+        if (Object.keys(errors).length) {
+          // mostrar errores con clases bootstrap
+          Object.keys(errors).forEach(function(field){
+            var input = form.querySelector('[name="' + field + '"]');
+            if (!input) return;
+            input.classList.add('is-invalid');
+            var fb = input.parentElement.querySelector('.invalid-feedback');
+            if (fb) fb.textContent = errors[field];
+          });
+          var firstInvalid = form.querySelector('.is-invalid');
+          if (firstInvalid && typeof firstInvalid.focus === 'function') firstInvalid.focus();
+          return;
+        }
+
+        // Si no hay errores: simular respuesta de servidor exitosa
+        // Insertar alerta de éxito antes del formulario
+        var existingAlert = form.parentElement.querySelector('.alert');
+        if (existingAlert) existingAlert.remove();
+        var alert = document.createElement('div');
+        alert.className = 'alert alert-success';
+        alert.role = 'alert';
+        alert.textContent = 'Gracias — tu mensaje ha sido enviado.';
+        form.parentElement.insertBefore(alert, form);
+
+        // marcar campos como válidos
+        fields.forEach(function(f){
+          var input = form.querySelector('[name="' + f + '"]');
+          if (input) input.classList.add('is-valid');
+        });
+
+      });
+    })();
+  </script>
 
 </body>
 </html>
