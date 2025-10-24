@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario xdxdxd</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Videogames is life</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="portafolio.html">Portafolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacto</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="formulario.html">Formulario</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <main class="container py-5">
+      <h1 class="mb-4">Formulario</h1>
+
+      <form class="row g-3" id="formulario-ejemplo" novalidate>
+        <div class="col-12">
+          <label for="nombre" class="form-label">Nombre completo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombre"
+            name="nombre"
+            placeholder="Inserte su nombre aquí"
+            required
+          />
+          <div class="invalid-feedback" id="feedback-nombre"></div>
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="correo@ejemplo.com"
+            required
+          />
+          <div class="invalid-feedback" id="feedback-email"></div>
+        </div>
+        <div class="col-md-6">
+          <label for="password" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Inserte acá su contraseña"
+            required
+          />
+          <div class="invalid-feedback" id="feedback-password"></div>
+        </div>
+        <div class="col-md-3">
+          <label for="edad" class="form-label">Edad</label>
+          <input
+            type="number"
+            class="form-control"
+            id="edad"
+            min="0"
+            placeholder="Edad"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+          <input
+            type="date"
+            class="form-control"
+            id="nacimiento"
+            placeholder="dd/mm/aaaa"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="hora" class="form-label">Hora de cita</label>
+          <input type="time" class="form-control" id="hora" />
+        </div>
+        <div class="col-md-3">
+          <label for="color" class="form-label">Color favorito</label>
+          <input
+            type="color"
+            class="form-control form-control-color"
+            id="color"
+            value="#563d7c"
+            title="Elige tu color favorito"
+          />
+        </div>
+        <div class="col-12">
+          <label for="archivo" class="form-label">Subir archivo</label>
+          <input class="form-control" type="file" id="archivo" />
+        </div>
+        <div class="col-md-6">
+          <label for="pais" class="form-label">País</label>
+          <select id="pais" name="pais" class="form-select">
+            <option selected>Selecciona tu país</option>
+            <option>Colombia</option>
+            <option>Argentina</option>
+            <option>Chile</option>
+            <option>España</option>
+            <option>México</option>
+            <option>Otro</option>
+          </select>
+          <div class="invalid-feedback" id="feedback-pais"></div>
+        </div>
+        <div class="col-12">
+          <label for="comentarios" class="form-label">Comentarios</label>
+          <textarea
+            class="form-control"
+            id="comentarios"
+            rows="3"
+            placeholder="Escribe algo..."
+          ></textarea>
+        </div>
+        <!-- Género (radio) -->
+        <div class="col-md-6">
+          <label class="form-label d-block">Género</label>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="genero"
+              id="masculino"
+              value="masculino"
+            />
+            <label class="form-check-label" for="masculino">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="genero"
+              id="femenino"
+              value="femenino"
+            />
+            <label class="form-check-label" for="femenino">Femenino</label>
+          </div>
+        </div>
+        <!--Intereses-->
+        <div class="col-md-6">
+          <label class="form-label d-block">Intereses</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="interes-musica"
+              value="musica"
+            />
+            <label class="form-check-label" for="interes-musica">Música</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="interes-deporte"
+              value="deporte"
+            />
+            <label class="form-check-label" for="interes-deporte"
+              >Deporte</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="interes-lectura"
+              value="lectura"
+            />
+            <label class="form-check-label" for="interes-lectura"
+              >Lectura</label
+            >
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="satisfaccion" class="form-label"
+            >Nivel de satisfacción</label
+          >
+          <input
+            type="range"
+            class="form-range"
+            id="satisfaccion"
+            min="0"
+            max="10"
+          />
+        </div>
+
+        <div class="col-md-6 align-self-center">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="novedades" />
+            <label class="form-check-label" for="novedades"
+              >Deseo recibir novedades</label
+            >
+          </div>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+          <button type="reset" class="btn btn-secondary">Limpiar</button>
+          <button type="submit" class="btn btn-primary" id="btn-enviar">
+            Enviar
+          </button>
+        </div>
+      </form>
+
+      <!-- Área para mensajes generales del servidor -->
+      <div id="server-message" class="mt-3" aria-live="polite"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      (function () {
+        const form = document.getElementById("formulario-ejemplo");
+        const btnEnviar = document.getElementById("btn-enviar");
+        const serverMessage = document.getElementById("server-message");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          clearValidation(form);
+          btnEnviar.disabled = true;
+          serverMessage.innerHTML = "";
+
+          const formData = new FormData(form);
+          const response = await simulateServerValidation(formData);
+          btnEnviar.disabled = false;
+
+          if (response.success) {
+            serverMessage.innerHTML =
+              '<div class="alert alert-success">Envío correcto, Gracias por su tiempo.</div>';
+            markAllValid(form);
+          } else {
+            serverMessage.innerHTML =
+              '<div class="alert alert-danger">Se han encontrado errores en el formulario. Revise los campos marcados.</div>';
+            // aplicar errores a cada campo
+            for (const [field, msg] of Object.entries(response.errors)) {
+              const input = form.querySelector(`[name="${field}"]`);
+              if (input) {
+                input.classList.add("is-invalid");
+                const fb = document.getElementById(`feedback-${field}`);
+                if (fb) fb.textContent = msg;
+              }
+            }
+            // marcar como válidos los campos sin error (mejora UX)
+            for (const el of form.querySelectorAll(
+              "input[name], select[name], textarea[name]"
+            )) {
+              const name = el.getAttribute("name");
+              if (!response.errors[name]) {
+                if (el.type !== "file" && el.type !== "range") {
+                  el.classList.add("is-valid");
+                }
+              }
+            }
+          }
+        });
+
+        function clearValidation(form) {
+          for (const el of form.querySelectorAll(".is-invalid, .is-valid")) {
+            el.classList.remove("is-invalid", "is-valid");
+          }
+          for (const fb of form.querySelectorAll(".invalid-feedback")) {
+            fb.textContent = "";
+          }
+        }
+
+        function markAllValid(form) {
+          for (const el of form.querySelectorAll(
+            "input[name], select[name], textarea[name]"
+          )) {
+            if (el.type !== "file" && el.type !== "range") {
+              el.classList.add("is-valid");
+            }
+          }
+        }
+
+        function simulateServerValidation(formData) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              const errors = {};
+              const nombre = (formData.get("nombre") || "").trim();
+              const email = (formData.get("email") || "").trim();
+              const password = (formData.get("password") || "").trim();
+              const pais = (formData.get("pais") || "").trim();
+              const Comentarios = (formData.get("Comentarios") || "").trim();
+
+              if (!nombre || nombre.length < 5)
+                errors.nombre = "El nombre debe tener al menos 5 caracteres.";
+              if (!email || !/@/.test(email))
+                errors.email = "Introduce un correo válido.";
+              if (!password || password.length < 8)
+                errors.password =
+                  "La contraseña debe tener al menos 8 caracteres.";
+              if (!pais || pais === "Selecciona tu país")
+                errors.pais = "Selecciona un país válido.";
+              if (!Comentarios || Comentarios.length < 10)
+                resolve({ success: Object.keys(errors).length === 0, errors });
+            }, 700);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
